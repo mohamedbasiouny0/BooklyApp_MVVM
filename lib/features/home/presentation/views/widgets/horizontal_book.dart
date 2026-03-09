@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BookItem extends StatelessWidget {
-  const BookItem.horizontalBook({
-    super.key,
-    required this.height,
-    required this.width,
-  });
+class HorizontalBook extends StatelessWidget {
+  const HorizontalBook({super.key, this.height, this.width});
   final double? height, width;
   @override
   Widget build(BuildContext context) {
@@ -14,10 +10,11 @@ class BookItem extends StatelessWidget {
       height: height,
       margin: EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
-        borderRadius: .circular(8),
+        color: Colors.white,
+        borderRadius: .circular(16),
         image: DecorationImage(
-          image: NetworkImage('https://picsum.photos/200'),
-          fit: .cover,
+          image: AssetImage('assets/images/test_image.png'),
+          fit: .fitWidth,
         ),
       ),
     );

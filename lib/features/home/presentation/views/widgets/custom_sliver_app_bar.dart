@@ -12,6 +12,12 @@ class CustomSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       leadingWidth: 90,
       backgroundColor: Colors.red,
+
+      toolbarHeight: 80,
+      scrolledUnderElevation: 4,
+      elevation: 4,
+      pinned: true,
+
       actions: [
         Padding(
           padding: const .only(right: 8),
@@ -25,7 +31,6 @@ class CustomSliverAppBar extends StatelessWidget {
         padding: const .only(left: 16),
         child: SvgPicture.asset(AssetsData.logo),
       ),
-      toolbarHeight: 80,
     );
   }
 }

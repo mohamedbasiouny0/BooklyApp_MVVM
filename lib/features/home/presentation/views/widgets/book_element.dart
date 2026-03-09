@@ -11,7 +11,7 @@ class BookElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        BookItem.horizontalBook(height: 105, width: 70),
+        HorizontalBook(height: 105, width: 70),
         Column(
           crossAxisAlignment: .start,
           spacing: 2,

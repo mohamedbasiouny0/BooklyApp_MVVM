@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:test1/core/widgets/custom_text.dart';
-import 'package:test1/features/home/presentation/views/widgets/book_element.dart';
 import 'package:test1/features/home/presentation/views/widgets/horizontal_list_view.dart';
 import 'package:test1/features/home/presentation/views/widgets/vertical_list_view.dart';
 import 'custom_sliver_app_bar.dart';
