@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:test1/core/utils/assets.dart';
 import 'package:test1/core/widgets/custom_text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -72,40 +73,40 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // Animated Logo
-          AnimatedBuilder(
-            animation: _controller,
-            builder: (context, child) {
-              return Opacity(
-                opacity: _logoOpacity.value,
-                child: Transform.scale(scale: _logoScale.value, child: child),
-              );
-            },
-            child: SvgPicture.asset('assets/images/Logo.svg', height: 40),
-          ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: .stretch,
+      children: [
+        // Animated Logo
+        AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Opacity(
+              opacity: _logoOpacity.value,
+              child: Transform.scale(scale: _logoScale.value, child: child),
+            );
+          },
+          child: SvgPicture.asset(AssetsData.logo, height: 40),
+        ),
 
-          const Gap(10),
+        const Gap(10),
 
-          // Animated Tagline
-          AnimatedBuilder(
-            animation: _controller,
-            builder: (context, child) {
-              return Opacity(
-                opacity: _textOpacity.value,
-                child: SlideTransition(position: _textSlide, child: child),
-              );
-            },
-            child: const CustomText(
-              'Discover stories, Discover ideas.',
-              fontSize: 17,
-            ),
+        // Animated Tagline
+        AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Opacity(
+              opacity: _textOpacity.value,
+              child: SlideTransition(position: _textSlide, child: child),
+            );
+          },
+          child: const CustomText(
+            'Discover stories, Discover ideas.',
+            textAlign: .center,
+            fontSize: 17,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
