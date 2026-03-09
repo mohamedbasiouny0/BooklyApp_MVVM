@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:test1/core/utils/assets.dart';
-import 'package:test1/core/widgets/custom_text.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:test1/core/utils/contsant.dart';
+import 'package:test1/features/home/presentation/views/home_view.dart';
+import 'package:test1/features/splash/presentation/views/widgets/animated_logo.dart';
+import 'package:test1/features/splash/presentation/views/widgets/animated_text.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -14,7 +17,6 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-
   late Animation<double> _logoScale;
   late Animation<double> _logoOpacity;
   late Animation<double> _textOpacity;
@@ -63,6 +65,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
         );
 
     _controller.forward();
+    navigateToHome();
+  }
+
+  Future<Null> navigateToHome() {
+    return Future.delayed(const Duration(milliseconds: 2500), () {
+    Get.to(
+      () => HomeView(),
+      transition: Transition.circularReveal,
+      duration: kTransitionDuration,
+    );
+  });
   }
 
   @override
@@ -77,34 +90,16 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: .stretch,
       children: [
-        // Animated Logo
-        AnimatedBuilder(
-          animation: _controller,
-          builder: (context, child) {
-            return Opacity(
-              opacity: _logoOpacity.value,
-              child: Transform.scale(scale: _logoScale.value, child: child),
-            );
-          },
-          child: SvgPicture.asset(AssetsData.logo, height: 40),
+        AnimatedLogo(
+          controller: _controller,
+          logoOpacity: _logoOpacity,
+          logoScale: _logoScale,
         ),
-
         const Gap(10),
-
-        // Animated Tagline
-        AnimatedBuilder(
-          animation: _controller,
-          builder: (context, child) {
-            return Opacity(
-              opacity: _textOpacity.value,
-              child: SlideTransition(position: _textSlide, child: child),
-            );
-          },
-          child: const CustomText(
-            'Discover stories, Discover ideas.',
-            textAlign: .center,
-            fontSize: 17,
-          ),
+        AnimatedText(
+          controller: _controller,
+          textOpacity: _textOpacity,
+          textSlide: _textSlide,
         ),
       ],
     );
