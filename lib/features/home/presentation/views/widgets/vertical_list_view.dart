@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:test1/features/home/presentation/views/widgets/book_element.dart';
+import 'package:test1/features/home/presentation/views/widgets/best_seller_item.dart.dart';
 
 class VerticalListView extends StatelessWidget {
   const VerticalListView({super.key});
@@ -9,7 +9,7 @@ class VerticalListView extends StatelessWidget {
     return SliverList.builder(
       itemCount: 7,
       itemBuilder: (context, index) =>
-          Padding(padding: const .only(bottom: 16), child: BookElement()),
+          Padding(padding: const .only(bottom: 16), child: BestSellerItem()),
     );
   }
 }

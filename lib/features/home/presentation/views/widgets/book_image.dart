@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class BookImage extends StatelessWidget {
-  const BookImage({super.key});
+  const BookImage({super.key, this.padding = 16});
+
+  final double? padding;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2 / 3,
       child: Container(
-        margin: EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: padding!),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: .circular(16),
