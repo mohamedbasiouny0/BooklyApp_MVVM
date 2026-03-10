@@ -12,6 +12,7 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: .symmetric(horizontal: 16),
       decoration: BoxDecoration(
         borderRadius: .circular(16),
         color: Colors.white.withOpacity(0.1),
@@ -19,7 +20,7 @@ class BestSellerItem extends StatelessWidget {
       height: 120,
       child: Row(
         children: [
-          SizedBox(width: 96, child: BookImage()),
+          SizedBox(width: 96, child: BookImage(padding: .only(right: 16))),
           Expanded(
             child: Column(
               crossAxisAlignment: .start,

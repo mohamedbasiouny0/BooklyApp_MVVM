@@ -12,8 +12,10 @@ class HorizontalListView extends StatelessWidget {
         scrollDirection: .horizontal,
         itemCount: 5,
         padding: .zero,
-        itemBuilder: (context, index) =>
-            SizedBox(width: 150.5, child: BookImage()),
+        itemBuilder: (context, index) => SizedBox(
+          width: 150.5,
+          child: BookImage(padding: .symmetric(horizontal: 8)),
+        ),
       ),
     );
   }

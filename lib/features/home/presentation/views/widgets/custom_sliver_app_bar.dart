@@ -15,12 +15,18 @@ class CustomSliverAppBar extends StatelessWidget {
       pinned: true,
       surfaceTintColor: Colors.transparent,
       actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(CupertinoIcons.search, color: Colors.white),
+        Padding(
+          padding: const .only(right: 16),
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(CupertinoIcons.search, color: Colors.white),
+          ),
         ),
       ],
-      leading: SvgPicture.asset(AssetsData.logo),
+      leading: Padding(
+        padding: const .only(left: 16),
+        child: SvgPicture.asset(AssetsData.logo),
+      ),
     );
   }
 }
