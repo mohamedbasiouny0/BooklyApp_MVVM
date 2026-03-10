@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:test1/core/utils/styles.dart';
@@ -9,6 +8,7 @@ class BookRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: .min,
       children: [
         Icon(Icons.star_rounded, color: Colors.amber),
         Gap(5),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test1/features/home/presentation/views/book_details_view.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 
 class HorizontalListView extends StatelessWidget {
@@ -14,7 +16,16 @@ class HorizontalListView extends StatelessWidget {
         padding: .zero,
         itemBuilder: (context, index) => SizedBox(
           width: 150.5,
-          child: BookImage(padding: .symmetric(horizontal: 8)),
+          child: GestureDetector(
+            onTap: () {
+              Get.to(
+                () => BookDetailView(),
+                transition: .size,
+                duration: Duration(milliseconds: 500),
+              );
+            },
+            child: BookImage(padding: .symmetric(horizontal: 8)),
+          ),
         ),
       ),
     );

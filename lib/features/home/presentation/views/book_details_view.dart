@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:test1/features/home/presentation/views/book_details_view_widgets/widgets/book_details_view_body.dart';
 
 class BookDetailView extends StatelessWidget {
@@ -6,6 +8,27 @@ class BookDetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: BookDetailsViewBody());
+    return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: const .only(left: 16),
+          child: IconButton(
+            onPressed: () => Get.back(),
+            icon: Icon(CupertinoIcons.xmark),
+          ),
+        ),
+
+        actions: [
+          Padding(
+            padding: .only(right: 16),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(CupertinoIcons.cart),
+            ),
+          ),
+        ],
+      ),
+      body: BookDetailsViewBody(),
+    );
   }
 }
