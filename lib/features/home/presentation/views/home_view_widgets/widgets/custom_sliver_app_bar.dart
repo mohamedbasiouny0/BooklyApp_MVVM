@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/utils/assets.dart';
+import '../../../../../../core/utils/assets.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({super.key});

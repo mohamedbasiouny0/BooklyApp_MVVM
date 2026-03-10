@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:test1/core/utils/styles.dart';
-import 'package:test1/features/home/presentation/views/widgets/book_image.dart';
-import 'package:test1/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
+import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_rating.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({super.key});

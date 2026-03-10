@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:test1/core/utils/styles.dart';
 import 'package:test1/core/widgets/custom_text.dart';
-import 'package:test1/features/home/presentation/views/widgets/horizontal_list_view.dart';
-import 'package:test1/features/home/presentation/views/widgets/vertical_list_view.dart';
+import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/horizontal_list_view.dart';
+import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/vertical_list_view.dart';
 import 'custom_sliver_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {

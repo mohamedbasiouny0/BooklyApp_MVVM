@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/features/home/presentation/views/widgets/book_image.dart';
+import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 
 class HorizontalListView extends StatelessWidget {
   const HorizontalListView({super.key});

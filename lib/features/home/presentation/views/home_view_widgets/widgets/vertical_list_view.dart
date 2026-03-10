@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:test1/features/home/presentation/views/widgets/best_seller_item.dart.dart';
+import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/best_seller_item.dart.dart';
 
 class VerticalListView extends StatelessWidget {
   const VerticalListView({super.key});
