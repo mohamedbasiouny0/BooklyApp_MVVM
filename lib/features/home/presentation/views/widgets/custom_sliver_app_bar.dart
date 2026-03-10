@@ -11,12 +11,9 @@ class CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       leadingWidth: 90,
-      backgroundColor: Colors.red,
-
       toolbarHeight: 80,
-      scrolledUnderElevation: 4,
-      elevation: 4,
       pinned: true,
+      surfaceTintColor: Colors.transparent,
 
       actions: [
         Padding(

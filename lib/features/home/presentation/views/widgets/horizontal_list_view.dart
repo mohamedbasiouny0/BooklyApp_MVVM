@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/features/home/presentation/views/widgets/horizontal_book.dart';
+import 'package:test1/features/home/presentation/views/widgets/book_image.dart';
 
 class HorizontalListView extends StatelessWidget {
   const HorizontalListView({super.key});
@@ -14,7 +14,7 @@ class HorizontalListView extends StatelessWidget {
         itemCount: 5,
         padding: .zero,
         itemBuilder: (context, index) =>
-            HorizontalBook(width: MediaQuery.of(context).size.width * 0.315),
+            SizedBox(width: 150.5, child: BookImage()),
       ),
     );
   }
