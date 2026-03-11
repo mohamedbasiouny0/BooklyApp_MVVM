@@ -17,7 +17,7 @@ class BookDetailView extends StatelessWidget {
             icon: Icon(CupertinoIcons.xmark),
           ),
         ),
-
+        surfaceTintColor: Colors.transparent,
         actions: [
           Padding(
             padding: .only(right: 16),

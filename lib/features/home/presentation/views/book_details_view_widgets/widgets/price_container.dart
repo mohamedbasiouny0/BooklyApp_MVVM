@@ -8,33 +8,34 @@ class PriceContainer extends StatelessWidget {
     required this.backgroundColor,
     required this.text,
     required this.textColor,
+    this.fontSize,
   });
 
   final BorderRadiusGeometry borderRadiusGeometry;
   final Color backgroundColor;
   final Color textColor;
   final String text;
+  final double? fontSize;
+  // final VoidCallback onPreesed;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: .center,
-      width: 150,
-      height: 50,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: borderRadiusGeometry,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white,
-            blurRadius: 8,
-            blurStyle: .outer,
-            offset: Offset(0, 0),
-          ),
-        ],
+    return ElevatedButton(
+      onPressed: () {},
+
+      style: ElevatedButton.styleFrom(
+        padding: .zero,
+        fixedSize: Size(150, 50),
+        shape: RoundedRectangleBorder(borderRadius: borderRadiusGeometry),
+        backgroundColor: backgroundColor,
+        foregroundColor: textColor,
       ),
+
       child: Text(
         text,
-        style: Styles.regularTextStyle18.copyWith(color: textColor),
+        style: Styles.regularTextStyle16.copyWith(
+          fontSize: fontSize,
+          fontWeight: .bold,
+        ),
       ),
     );
   }

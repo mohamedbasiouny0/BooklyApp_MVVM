@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 
-class HorizontalListViewBookDetails extends StatelessWidget {
-  const HorizontalListViewBookDetails({super.key});
+class SimilarBooksListView extends StatelessWidget {
+  const SimilarBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {

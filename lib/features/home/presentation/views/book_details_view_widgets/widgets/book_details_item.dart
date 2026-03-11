@@ -23,6 +23,7 @@ class BookDetailsItem extends StatelessWidget {
           style: Styles.regularTextStyle18.copyWith(
             color: Colors.grey.shade400,
             fontStyle: .italic,
+            fontWeight: .w500,
           ),
         ),
         Gap(10),
