@@ -15,7 +15,7 @@ class BookDetailsViewBody extends StatelessWidget {
         child: Column(
           children: [
             BookDetailsItem(),
-            Gap(42.5),
+            Gap(20),
             Row(
               mainAxisAlignment: .center,
               children: [
@@ -51,9 +51,10 @@ class BookDetailsViewBody extends StatelessWidget {
             ),
             Gap(20),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.18,
               child: HorizontalListViewBookDetails(),
             ),
+            Gap(30),
           ],
         ),
       ),

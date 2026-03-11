@@ -11,17 +11,21 @@ class BookDetailsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 243, child: BookImage()),
-        Gap(MediaQuery.of(context).size.height * 0.03),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.5,
+          child: BookImage(),
+        ),
+        Gap(30),
         Text('The Jungle Book', style: Styles.regularTextStyle30),
-        Gap(13),
+        Gap(5),
         Text(
           'Rudyard Kipling',
           style: Styles.regularTextStyle18.copyWith(
             color: Colors.grey.shade400,
+            fontStyle: .italic,
           ),
         ),
-        Gap(20),
+        Gap(10),
         BookRating(),
       ],
     );
