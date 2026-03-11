@@ -23,14 +23,14 @@ class CustomContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         borderRadius: borderRadiusGeometry,
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Colors.white,
-        //     blurRadius: 8,
-        //     blurStyle: .outer,
-        //     offset: Offset(0, 0),
-        //   ),
-        // ],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.white,
+            blurRadius: 8,
+            blurStyle: .outer,
+            offset: Offset(0, 0),
+          ),
+        ],
       ),
       child: Text(
         text,
