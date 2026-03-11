@@ -5,14 +5,14 @@ class PriceContainer extends StatelessWidget {
   const PriceContainer({
     super.key,
     required this.borderRadiusGeometry,
-    required this.color,
+    required this.backgroundColor,
     required this.text,
-    required this.colorText,
+    required this.textColor,
   });
 
   final BorderRadiusGeometry borderRadiusGeometry;
-  final Color color;
-  final Color colorText;
+  final Color backgroundColor;
+  final Color textColor;
   final String text;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class PriceContainer extends StatelessWidget {
       width: 150,
       height: 50,
       decoration: BoxDecoration(
-        color: color,
+        color: backgroundColor,
         borderRadius: borderRadiusGeometry,
         boxShadow: [
           BoxShadow(
@@ -34,7 +34,7 @@ class PriceContainer extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: Styles.regularTextStyle18.copyWith(color: colorText),
+        style: Styles.regularTextStyle18.copyWith(color: textColor),
       ),
     );
   }

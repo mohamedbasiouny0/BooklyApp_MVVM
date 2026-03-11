@@ -1,12 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 import 'price_container.dart';
 
 class BookActionsRow extends StatelessWidget {
-  const BookActionsRow({
-    super.key,
-  });
+  const BookActionsRow({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +15,18 @@ class BookActionsRow extends StatelessWidget {
             topLeft: .circular(20),
             bottomRight: .circular(20),
           ),
-          color: Colors.white,
+          backgroundColor: Colors.white,
           text: '19.99 €',
-          colorText: Colors.black,
+          textColor: Colors.black,
         ),
         PriceContainer(
           borderRadiusGeometry: .only(
             topRight: .circular(20),
             bottomLeft: .circular(20),
           ),
-          color: Color(0XFFEF8262),
+          backgroundColor: Color(0XFFEF8262),
           text: 'Free preview',
-          colorText: Colors.white,
+          textColor: Colors.white,
         ),
       ],
     );
