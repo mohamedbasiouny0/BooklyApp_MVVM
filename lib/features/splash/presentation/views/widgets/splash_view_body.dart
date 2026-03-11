@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:test1/core/utils/contsant.dart';
-import 'package:test1/features/home/presentation/views/home_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:test1/core/utils/app_routes.dart';
 import 'package:test1/features/splash/presentation/views/widgets/animated_logo.dart';
 import 'package:test1/features/splash/presentation/views/widgets/animated_text.dart';
 
@@ -70,11 +68,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   Future<Null> navigateToHome() {
     return Future.delayed(const Duration(milliseconds: 2500), () {
-      Get.offAll(
-        () => HomeView(),
-        transition: Transition.circularReveal,
-        duration: kTransitionDuration,
-      );
+      // Get.offAll(
+      //   () => HomeView(),
+      //   transition: Transition.circularReveal,
+      //   duration: kTransitionDuration,
+      // );
+
+      context.go(AppRoutes.kHomeView);
     });
   }
 

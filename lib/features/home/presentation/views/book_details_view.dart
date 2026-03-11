@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:test1/features/home/presentation/views/book_details_view_widgets/widgets/book_details_view_body.dart';
 
 class BookDetailView extends StatelessWidget {
@@ -13,7 +13,7 @@ class BookDetailView extends StatelessWidget {
         leading: Padding(
           padding: const .only(left: 16),
           child: IconButton(
-            onPressed: () => Get.back(),
+            onPressed: () => context.pop(),
             icon: Icon(CupertinoIcons.xmark),
           ),
         ),

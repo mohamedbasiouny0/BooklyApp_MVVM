@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import 'package:test1/core/utils/app_routes.dart';
 import 'package:test1/core/utils/styles.dart';
-import 'package:test1/features/home/presentation/views/book_details_view.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_rating.dart';
 
@@ -14,11 +14,13 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(
-        () => BookDetailView(),
-        transition: .size,
-        duration: Duration(milliseconds: 500),
-      ),
+      onTap: () => context.push(AppRoutes.kBookDetailsView),
+
+      // Get.to(
+      //   () => BookDetailView(),
+      //   transition: .size,
+      //   duration: Duration(milliseconds: 500),
+      // ),
       child: Container(
         margin: .symmetric(horizontal: 16),
         decoration: BoxDecoration(

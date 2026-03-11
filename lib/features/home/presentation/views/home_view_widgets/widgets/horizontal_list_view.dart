@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:test1/features/home/presentation/views/book_details_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:test1/core/utils/app_routes.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 
 class HorizontalListView extends StatelessWidget {
@@ -18,11 +18,13 @@ class HorizontalListView extends StatelessWidget {
           width: 150.5,
           child: GestureDetector(
             onTap: () {
-              Get.to(
-                () => BookDetailView(),
-                transition: .size,
-                duration: Duration(milliseconds: 500),
-              );
+              // Get.to(
+              //   () => BookDetailView(),
+              //   transition: .size,
+              //   duration: Duration(milliseconds: 500),
+              // );
+
+              context.push(AppRoutes.kBookDetailsView);
             },
             child: BookImage(padding: .symmetric(horizontal: 8)),
           ),
