@@ -25,12 +25,12 @@ class BestSellerItem extends StatelessWidget {
         margin: .symmetric(horizontal: 16),
         decoration: BoxDecoration(
           borderRadius: .circular(16),
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.white.withOpacity(0.15),
         ),
         height: 120,
         child: Row(
           children: [
-            SizedBox(width: 96, child: BookImage(padding: .only(right: 16))),
+            Padding(padding: .only(right: 16), child: BookImage()),
             Expanded(
               child: Column(
                 crossAxisAlignment: .start,

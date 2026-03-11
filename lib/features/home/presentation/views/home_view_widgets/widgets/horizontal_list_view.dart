@@ -14,19 +14,19 @@ class HorizontalListView extends StatelessWidget {
         scrollDirection: .horizontal,
         itemCount: 5,
         padding: .zero,
-        itemBuilder: (context, index) => SizedBox(
-          width: 150.5,
-          child: GestureDetector(
-            onTap: () {
-              // Get.to(
-              //   () => BookDetailView(),
-              //   transition: .size,
-              //   duration: Duration(milliseconds: 500),
-              // );
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            // Get.to(
+            //   () => BookDetailView(),
+            //   transition: .size,
+            //   duration: Duration(milliseconds: 500),
+            // );
 
-              context.push(AppRoutes.kBookDetailsView);
-            },
-            child: BookImage(padding: .symmetric(horizontal: 8)),
+            context.push(AppRoutes.kBookDetailsView);
+          },
+          child: Padding(
+            padding: const .only(right: 8, left: 8),
+            child: BookImage(),
           ),
         ),
       ),
