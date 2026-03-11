@@ -1,11 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 
 class HorizontalListViewBookDetails extends StatelessWidget {
-  const HorizontalListViewBookDetails({
-    super.key,
-  });
+  const HorizontalListViewBookDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +10,7 @@ class HorizontalListViewBookDetails extends StatelessWidget {
       scrollDirection: .horizontal,
       itemCount: 10,
       itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.only(right: 5, left: 5),
         child: BookImage(),
       ),
     );
