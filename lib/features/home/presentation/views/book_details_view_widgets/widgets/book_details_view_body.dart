@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:test1/core/utils/styles.dart';
 import 'package:test1/features/home/presentation/views/book_details_view_widgets/widgets/book_details_item.dart';
-import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
-import 'custom_container.dart';
+import 'horizontal_listview_book_details.dart';
+import 'price_container.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
@@ -19,7 +19,7 @@ class BookDetailsViewBody extends StatelessWidget {
             Row(
               mainAxisAlignment: .center,
               children: [
-                CustomContainer(
+                PriceContainer(
                   borderRadiusGeometry: .only(
                     topLeft: .circular(20),
                     bottomRight: .circular(20),
@@ -28,7 +28,7 @@ class BookDetailsViewBody extends StatelessWidget {
                   text: '19.99 €',
                   colorText: Colors.black,
                 ),
-                CustomContainer(
+                PriceContainer(
                   borderRadiusGeometry: .only(
                     topRight: .circular(20),
                     bottomLeft: .circular(20),
@@ -39,7 +39,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
               ],
             ),
-            Gap(100),
+            Gap(MediaQuery.of(context).size.height * 0.06),
             Padding(
               padding: const .only(left: 16),
               child: Row(
@@ -51,15 +51,8 @@ class BookDetailsViewBody extends StatelessWidget {
             ),
             Gap(20),
             SizedBox(
-              height: 112,
-              child: ListView.builder(
-                scrollDirection: .horizontal,
-                itemCount: 10,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: BookImage(),
-                ),
-              ),
+              height: MediaQuery.of(context).size.height * 0.2,
+              child: HorizontalListViewBookDetails(),
             ),
           ],
         ),

@@ -12,7 +12,7 @@ class BookDetailsItem extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 243, child: BookImage()),
-        Gap(42),
+        Gap(MediaQuery.of(context).size.height * 0.03),
         Text('The Jungle Book', style: Styles.regularTextStyle30),
         Gap(13),
         Text(

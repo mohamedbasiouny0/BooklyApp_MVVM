@@ -8,8 +8,8 @@ class BookImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2.01 / 3,
-      child: Container(
-      
+      child: Container( 
+        
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: .circular(16),

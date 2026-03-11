@@ -21,7 +21,6 @@ class HorizontalListView extends StatelessWidget {
             //   transition: .size,
             //   duration: Duration(milliseconds: 500),
             // );
-
             context.push(AppRoutes.kBookDetailsView);
           },
           child: Padding(

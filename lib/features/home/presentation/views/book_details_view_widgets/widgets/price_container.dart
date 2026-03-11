@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../../../core/utils/styles.dart';
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({
+class PriceContainer extends StatelessWidget {
+  const PriceContainer({
     super.key,
     required this.borderRadiusGeometry,
     required this.color,
