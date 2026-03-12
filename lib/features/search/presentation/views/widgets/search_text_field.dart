@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({super.key});
@@ -8,12 +10,15 @@ class SearchTextField extends StatelessWidget {
     return TextField(
       cursorColor: Colors.white,
       style: TextStyle(color: Colors.white, fontSize: 20),
+      onSubmitted: (value) {},
       decoration: InputDecoration(
-        contentPadding: .only(left: 8),
-        hint: Text(
-          'Search',
-          style: TextStyle(color: Colors.grey.shade400, fontSize: 20),
+        suffix: IconButton(
+          onPressed: () {},
+          icon: Icon(CupertinoIcons.search, color: Colors.grey.shade400),
         ),
+        contentPadding: .only(left: 8),
+        hintText: 'Search',
+        hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 19),
         enabledBorder: underLineBorder(),
         focusedBorder: underLineBorder(),
       ),
