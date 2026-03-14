@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:test1/core/utils/assets.dart';
@@ -9,7 +8,9 @@ class AnimatedLogo extends StatelessWidget {
     required AnimationController controller,
     required Animation<double> logoOpacity,
     required Animation<double> logoScale,
-  }) : _controller = controller, _logoOpacity = logoOpacity, _logoScale = logoScale;
+  }) : _controller = controller,
+       _logoOpacity = logoOpacity,
+       _logoScale = logoScale;
 
   final AnimationController _controller;
   final Animation<double> _logoOpacity;

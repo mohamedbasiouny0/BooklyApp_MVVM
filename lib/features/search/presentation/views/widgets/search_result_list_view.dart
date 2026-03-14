@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:test1/features/search/presentation/views/widgets/result_item.dart';
 
 class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({
-    super.key,
-  });
+  const SearchResultListView({super.key});
 
   @override
   Widget build(BuildContext context) {
