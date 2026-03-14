@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:test1/core/network/api_exceptions.dart';
 import 'package:test1/core/network/dio_client.dart';
 
-class ApiService {
+class DioService {
   final DioClient dioClient = DioClient();
 
   Future<dynamic> getReq({required String endPoint}) async {
