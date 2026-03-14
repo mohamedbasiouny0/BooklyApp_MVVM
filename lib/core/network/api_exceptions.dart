@@ -15,7 +15,10 @@ class ApiExceptions {
       case DioExceptionType.badResponse:
         var errResponse = error.response!.data;
         if (errResponse is Map<String, dynamic>) {
-          return ApiError(message: errResponse['message']);
+          return ApiError(
+            message: errResponse['error']['message'],
+            code: errResponse['error']['code'],
+          );
         } else {
           return ApiError(message: 'There was an unexpected error');
         }

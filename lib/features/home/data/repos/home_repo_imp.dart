@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:test1/core/errors/faliure.dart';
 import 'package:test1/core/network/api_service.dart';
 import 'package:test1/core/utils/api_end_points.dart';
@@ -9,15 +10,41 @@ class HomeRepoImp implements HomeRepo {
   final DioService dioService = DioService();
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
-    final response = await dioService.getReq(
-      endPoint: ApiEndPoints.volumesEndPoint,
-    );
+    try {
+      final response = await dioService.getReq(
+        endPoint: ApiEndPoints.newsetBooksEndPoint,
+      );
 
-    List<BookModel> modelList = [];
-    var itemsList = response['items'];
-    for (var element in itemsList) {
-      modelList.add(BookModel.fromJson(element));
+      List<BookModel> modelList = [];
+      var itemsList = response['items'];
+      for (var element in itemsList) {
+        modelList.add(BookModel.fromJson(element));
+      }
+      return right(modelList);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioExceptions(e));
+    } on Exception catch (e) {
+      return left(ServerFailure(errMessage: e.toString()));
     }
-    return right(modelList);
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
+      final response = await dioService.getReq(
+        endPoint: ApiEndPoints.featuredBooksEndPoint,
+      );
+
+      List<BookModel> modelList = [];
+      var itemsList = response['items'];
+      for (var element in itemsList) {
+        modelList.add(BookModel.fromJson(element));
+      }
+      return right(modelList);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioExceptions(e));
+    } on Exception catch (e) {
+      return left(ServerFailure(errMessage: e.toString()));
+    }
   }
 }
