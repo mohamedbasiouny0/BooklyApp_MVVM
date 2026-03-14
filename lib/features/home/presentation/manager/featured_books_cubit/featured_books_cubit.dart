@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:test1/core/errors/faliure.dart';
+import 'package:test1/features/home/data/book_model/book_model.dart';
 import 'package:test1/features/home/data/repos/home_repo.dart';
 
 part 'featured_books_state.dart';
