@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test1/core/utils/app_routes.dart';
+import 'package:test1/core/widgets/error_widget.dart';
 import 'package:test1/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/featured_books_shimmer.dart';
@@ -11,18 +12,15 @@ class HorizontalListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<FeaturedBooksCubit, FeaturedBooksState>(
-      listener: (context, state) {
-        if (state is FeaturedBooksFailure) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
-        }
-      },
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
       builder: (context, state) {
         if (state is FeaturedBooksLoading) {
           return FeaturedBooksShimmer();
         }
+        if (state is FeaturedBooksFailure) {
+          return ErrorMessageWidget(errMessage: state.errorMessage);
+        }
+
         if (state is FeaturedBooksSuccess) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.211,
