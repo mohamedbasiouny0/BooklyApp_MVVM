@@ -7,8 +7,10 @@ import 'package:test1/core/utils/service_locator.dart';
 import 'package:test1/features/home/data/repos/home_repo_imp.dart';
 import 'package:test1/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:test1/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
+import 'package:test1/simple_Cubit_observer.dart';
 
 void main() {
+  Bloc.observer = SimpleCubitObserver();
   setupServiceLocator();
   runApp(BooklyApp());
 }

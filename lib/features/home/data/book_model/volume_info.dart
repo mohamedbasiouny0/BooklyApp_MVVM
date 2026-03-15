@@ -6,14 +6,14 @@ import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
-  final String? title;
+  final String title;
   final List<String>? authors;
   final String? publishedDate;
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes? readingModes;
   final int? pageCount;
   final String? printType;
-  final List<String>? categories;
+  final List<dynamic>? categories;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
@@ -25,7 +25,7 @@ class VolumeInfo extends Equatable {
   final String? canonicalVolumeLink;
 
   const VolumeInfo({
-    this.title,
+    required this.title,
     this.authors,
     this.publishedDate,
     this.industryIdentifiers,
@@ -45,8 +45,8 @@ class VolumeInfo extends Equatable {
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
-    title: json['title'] as String?,
-    authors: json['authors'] as List<String>?,
+    title: json['title'] as String,
+    authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
     publishedDate: json['publishedDate'] as String?,
     industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
         ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
@@ -56,7 +56,7 @@ class VolumeInfo extends Equatable {
         : ReadingModes.fromJson(json['readingModes'] as Map<String, dynamic>),
     pageCount: json['pageCount'] as int?,
     printType: json['printType'] as String?,
-    categories: json['categories'] as List<String>?,
+    categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
     maturityRating: json['maturityRating'] as String?,
     allowAnonLogging: json['allowAnonLogging'] as bool?,
     contentVersion: json['contentVersion'] as String?,

@@ -26,7 +26,7 @@ class NewestBooksShimmer extends StatelessWidget {
             height: 120,
             child: Row(
               children: [
-                BookImage(),
+                BookImage(imagePath: ''),
                 Gap(16),
                 Expanded(
                   child: Column(

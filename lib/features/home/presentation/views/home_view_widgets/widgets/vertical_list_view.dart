@@ -14,9 +14,11 @@ class VerticalListView extends StatelessWidget {
       builder: (context, state) {
         if (state is NewestBooksSuccess) {
           return SliverList.builder(
-            itemCount: 7,
-            itemBuilder: (context, index) =>
-                Padding(padding: const .only(bottom: 16), child: NewestItem()),
+            itemCount: state.booksList.length,
+            itemBuilder: (context, index) => Padding(
+              padding: const .only(bottom: 16),
+              child: NewestItem(bookModel: state.booksList[index]),
+            ),
           );
         }
         if (state is NewestBooksLoading) {

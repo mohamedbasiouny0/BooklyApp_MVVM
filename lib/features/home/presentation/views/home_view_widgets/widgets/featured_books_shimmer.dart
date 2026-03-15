@@ -20,7 +20,7 @@ class FeaturedBooksShimmer extends StatelessWidget {
             padding: .zero,
             itemBuilder: (context, index) => Padding(
               padding: const .only(right: 8, left: 8),
-              child: BookImage(),
+              child: BookImage(imagePath: ''),
             ),
           ),
         ),

@@ -12,7 +12,7 @@ class HomeRepoImp implements HomeRepo {
     final response = await apiService.getReq(
       endPoint: ApiEndPoints.newsetBooksEndPoint,
     );
-
+    print(response);
     List<BookModel> modelList = [];
     var itemsList = response['items'];
     for (var element in itemsList) {

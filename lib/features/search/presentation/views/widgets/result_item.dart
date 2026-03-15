@@ -17,7 +17,7 @@ class ResultItem extends StatelessWidget {
           selected: true,
           selectedColor: Colors.white,
           onTap: () => context.push(AppRoutes.kBookDetailsView),
-          leading: BookImage(borderRadiusGeometry: .zero),
+          leading: BookImage(borderRadiusGeometry: .zero, imagePath: ''),
           title: Text('The Jungle Book', style: TextStyle(color: Colors.white)),
           subtitle: Text(
             'Rudyard Kipling',

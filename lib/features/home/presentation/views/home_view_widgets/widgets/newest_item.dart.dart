@@ -5,22 +5,26 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test1/core/utils/app_routes.dart';
 import 'package:test1/core/utils/styles.dart';
+import 'package:test1/features/home/data/book_model/book_model.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_rating.dart';
 
 class NewestItem extends StatelessWidget {
-  const NewestItem({super.key});
+  const NewestItem({super.key, required this.bookModel});
+  final BookModel bookModel;
 
+  // getAuthors(){
+  //   var
+  //   for (var element in bookModel.volumeInfo!.authors!) {
+
+  //   }
+  // }
   @override
   Widget build(BuildContext context) {
+    var authorsList = bookModel.volumeInfo!.authors;
     return GestureDetector(
       onTap: () => context.push(AppRoutes.kBookDetailsView),
 
-      // Get.to(
-      //   () => BookDetailView(),
-      //   transition: .size,
-      //   duration: Duration(milliseconds: 500),
-      // ),
       child: Container(
         margin: .symmetric(horizontal: 16),
         decoration: BoxDecoration(
@@ -30,7 +34,7 @@ class NewestItem extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            BookImage(),
+            BookImage(imagePath: bookModel.volumeInfo!.imageLinks!.thumbnail!),
             Gap(16),
             Expanded(
               child: Column(
@@ -40,7 +44,7 @@ class NewestItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.68,
                     child: Text(
-                      'Harry Potter and the Goblet of Fire',
+                      bookModel.volumeInfo!.title,
                       maxLines: 2,
                       overflow: .ellipsis,
                       style: Styles.regularTextStyle18.copyWith(),
@@ -48,16 +52,19 @@ class NewestItem extends StatelessWidget {
                   ),
                   Gap(3),
                   Text(
-                    'J.K. Rowling',
+                    authorsList![0],
                     style: Styles.regularTextStyle14.copyWith(
                       color: Colors.amberAccent,
                     ),
                   ),
+
                   Spacer(),
                   Row(
                     children: [
                       Text(
-                        '19.99 €',
+                        bookModel.saleInfo!.saleability! == 'FOR_SALE'
+                            ? '${bookModel.saleInfo!.listPrice!.amount!.round().toString()} ${bookModel.saleInfo!.listPrice!.currencyCode}'
+                            : 'Not for sale',
                         style: Styles.regularTextStyle20.copyWith(
                           fontWeight: .bold,
                         ),
@@ -77,3 +84,9 @@ class NewestItem extends StatelessWidget {
     );
   }
 }
+
+      // Get.to(
+      //   () => BookDetailView(),
+      //   transition: .size,
+      //   duration: Duration(milliseconds: 500),
+      // ),
