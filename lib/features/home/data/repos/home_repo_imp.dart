@@ -7,11 +7,13 @@ import 'package:test1/features/home/data/book_model/book_model.dart';
 import 'package:test1/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImp implements HomeRepo {
-  final DioService dioService = DioService();
+  final ApiService apiService;
+
+  HomeRepoImp({required this.apiService});
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
-      final response = await dioService.getReq(
+      final response = await apiService.getReq(
         endPoint: ApiEndPoints.newsetBooksEndPoint,
       );
 
@@ -31,7 +33,7 @@ class HomeRepoImp implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      final response = await dioService.getReq(
+      final response = await apiService.getReq(
         endPoint: ApiEndPoints.featuredBooksEndPoint,
       );
 
