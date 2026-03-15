@@ -9,7 +9,7 @@ import 'package:test1/features/home/data/repos/home_repo.dart';
 class HomeRepoImp implements HomeRepo {
   final DioService dioService = DioService();
   @override
-  Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       final response = await dioService.getReq(
         endPoint: ApiEndPoints.newsetBooksEndPoint,
