@@ -6,7 +6,9 @@ class ErrorMessageWidget extends StatelessWidget {
   final String errMessage;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      margin: .symmetric(horizontal: 16),
+      alignment: .center,
       height: MediaQuery.of(context).size.height * 0.211,
       width: MediaQuery.of(context).size.width,
       child: Text(errMessage, style: Styles.regularTextStyle18),

@@ -18,6 +18,8 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
       emit(FeaturedBooksSuccess(booksList: result));
     } on ApiError catch (e) {
       emit(FeaturedBooksFailure(errorMessage: e.message));
+    } on Exception catch (e) {
+      emit(FeaturedBooksFailure(errorMessage: e.toString()));
     }
   }
 }
