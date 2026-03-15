@@ -6,11 +6,7 @@ class DioService {
   final DioClient dioClient = DioClient();
 
   Future<dynamic> getReq({required String endPoint}) async {
-    try {
-      final Response response = await dioClient.dio.get(endPoint);
-      return response.data;
-    } on DioException catch (e) {
-      ApiExceptions.handleError(e);
-    }
+    final Response response = await dioClient.dio.get(endPoint);
+    return response.data;
   }
 }
