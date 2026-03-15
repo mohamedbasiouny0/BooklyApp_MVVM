@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
           child: Padding(
             padding: const .only(left: 16),
             child: Text(
-              'Best Seller',
+              'Newest Book',
               style: Styles.regularTextStyle20.copyWith(fontWeight: .bold),
             ),
           ),

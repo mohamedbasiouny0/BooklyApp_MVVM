@@ -8,8 +8,8 @@ import 'package:test1/core/utils/styles.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_rating.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
+class NewestItem extends StatelessWidget {
+  const NewestItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,8 @@ class BestSellerItem extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            Padding(padding: .only(right: 16), child: BookImage()),
+            BookImage(),
+            Gap(16),
             Expanded(
               child: Column(
                 crossAxisAlignment: .start,

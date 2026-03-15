@@ -8,8 +8,8 @@ class FeaturedBooksShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey,
-      highlightColor: Colors.white,
+      baseColor: Colors.grey.shade700,
+      highlightColor: Colors.grey.shade400,
       child: Padding(
         padding: const .only(right: 8, left: 8),
         child: SizedBox(
@@ -26,6 +26,5 @@ class FeaturedBooksShimmer extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

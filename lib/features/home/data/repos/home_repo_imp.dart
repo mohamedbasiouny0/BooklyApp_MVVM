@@ -1,6 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:test1/core/errors/faliure.dart';
 import 'package:test1/core/network/api_service.dart';
 import 'package:test1/core/utils/api_end_points.dart';
 import 'package:test1/features/home/data/book_model/book_model.dart';
@@ -11,42 +8,30 @@ class HomeRepoImp implements HomeRepo {
 
   HomeRepoImp({required this.apiService});
   @override
-  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
-    try {
-      final response = await apiService.getReq(
-        endPoint: ApiEndPoints.newsetBooksEndPoint,
-      );
+  Future<List<BookModel>> fetchNewestBooks() async {
+    final response = await apiService.getReq(
+      endPoint: ApiEndPoints.newsetBooksEndPoint,
+    );
 
-      List<BookModel> modelList = [];
-      var itemsList = response['items'];
-      for (var element in itemsList) {
-        modelList.add(BookModel.fromJson(element));
-      }
-      return right(modelList);
-    } on DioException catch (e) {
-      return left(ServerFailure.fromDioExceptions(e));
-    } on Exception catch (e) {
-      return left(ServerFailure(errMessage: e.toString()));
+    List<BookModel> modelList = [];
+    var itemsList = response['items'];
+    for (var element in itemsList) {
+      modelList.add(BookModel.fromJson(element));
     }
+    return modelList;
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
-    try {
-      final response = await apiService.getReq(
-        endPoint: ApiEndPoints.featuredBooksEndPoint,
-      );
+  Future<List<BookModel>> fetchFeaturedBooks() async {
+    final response = await apiService.getReq(
+      endPoint: ApiEndPoints.featuredBooksEndPoint,
+    );
 
-      List<BookModel> modelList = [];
-      var itemsList = response['items'];
-      for (var element in itemsList) {
-        modelList.add(BookModel.fromJson(element));
-      }
-      return right(modelList);
-    } on DioException catch (e) {
-      return left(ServerFailure.fromDioExceptions(e));
-    } on Exception catch (e) {
-      return left(ServerFailure(errMessage: e.toString()));
+    List<BookModel> modelList = [];
+    var itemsList = response['items'];
+    for (var element in itemsList) {
+      modelList.add(BookModel.fromJson(element));
     }
+    return modelList;
   }
 }

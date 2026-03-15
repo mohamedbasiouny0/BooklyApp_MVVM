@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:test1/core/network/api_error.dart';
 import 'package:test1/features/home/data/book_model/book_model.dart';
 import 'package:test1/features/home/data/repos/home_repo.dart';
 
@@ -11,11 +12,12 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   final HomeRepo homeRepo;
 
   Future<void> getFeaturedBooks() async {
-    emit(FeaturedBooksLoading());
-    var result = await homeRepo.fetchFeaturedBooks();
-    result.fold(
-      (failure) => emit(FeaturedBooksFailure(errorMessage: failure.errMessage)),
-      (books) => emit(FeaturedBooksSuccess(booksList: books)),
-    );
+    try {
+      emit(FeaturedBooksLoading());
+      var result = await homeRepo.fetchFeaturedBooks();
+      emit(FeaturedBooksSuccess(booksList: result));
+    } on ApiError catch (e) {
+      emit(FeaturedBooksFailure(errorMessage: e.message));
+    }
   }
 }
