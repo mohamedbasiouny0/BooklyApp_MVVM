@@ -34,4 +34,17 @@ class HomeRepoImp implements HomeRepo {
     }
     return modelList;
   }
+
+  @override
+  Future<List<BookModel>> fetchSimilarBooksBooks({required String category}) async {
+    final response = await apiService.getReq(
+      endPoint: ApiEndPoints.similarBooksEndPoint(category: category),
+    );
+    List<BookModel> modelsList = [];
+    var itemsList = response['items'];
+    for (var element in itemsList) {
+      modelsList.add(BookModel.fromJson(element));
+    }
+    return modelsList;
+  }
 }

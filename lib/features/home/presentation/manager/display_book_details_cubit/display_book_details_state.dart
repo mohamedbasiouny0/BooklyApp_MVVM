@@ -11,6 +11,12 @@ final class DisplayBookDetailsInitial extends DisplayBookDetailsState {}
 
 final class DisplayBookDetailsLoading extends DisplayBookDetailsState {}
 
-final class DisplayBookDetailsFailure extends DisplayBookDetailsState {}
+final class DisplayBookDetailsFailure extends DisplayBookDetailsState {
+  final String errMessage;
+  const DisplayBookDetailsFailure({required this.errMessage});
+}
 
-final class DisplayBookDetailsSuccess extends DisplayBookDetailsState {}
+final class DisplayBookDetailsSuccess extends DisplayBookDetailsState {
+  final BookModel bookModel;
+  const DisplayBookDetailsSuccess({required this.bookModel});
+}
