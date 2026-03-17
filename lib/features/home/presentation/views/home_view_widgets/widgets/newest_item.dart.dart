@@ -29,7 +29,7 @@ class NewestItem extends StatelessWidget {
         margin: .symmetric(horizontal: 16),
         decoration: BoxDecoration(
           borderRadius: .circular(16),
-          color: Colors.white.withOpacity(0.15),
+          color: Colors.white.withAlpha(39),
         ),
         height: 120,
         child: Row(
@@ -45,6 +45,7 @@ class NewestItem extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.68,
                     child: Text(
                       bookModel.volumeInfo!.title,
+
                       maxLines: 2,
                       overflow: .ellipsis,
                       style: Styles.regularTextStyle18.copyWith(),
@@ -52,7 +53,9 @@ class NewestItem extends StatelessWidget {
                   ),
                   Gap(3),
                   Text(
-                    authorsList![0],
+                    authorsList?[0] ?? 'no author found',
+                    overflow: .ellipsis,
+                    maxLines: 1,
                     style: Styles.regularTextStyle14.copyWith(
                       color: Colors.amberAccent,
                     ),
@@ -70,7 +73,10 @@ class NewestItem extends StatelessWidget {
                         ),
                       ),
                       Spacer(),
-                      BookRating(),
+                      BookRating(
+                        rating: bookModel.volumeInfo?.averageRating ?? 0,
+                        ratingCount: bookModel.volumeInfo?.ratingCount ?? 0,
+                      ),
                       Gap(16),
                     ],
                   ),

@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 
 class NewestBooksShimmer extends StatelessWidget {
   const NewestBooksShimmer({super.key});
@@ -26,7 +25,15 @@ class NewestBooksShimmer extends StatelessWidget {
             height: 120,
             child: Row(
               children: [
-                BookImage(imagePath: ''),
+                AspectRatio(
+                  aspectRatio: 2.01 / 3,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: .circular(16),
+                    ),
+                  ),
+                ),
                 Gap(16),
                 Expanded(
                   child: Column(

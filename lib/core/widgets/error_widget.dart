@@ -11,7 +11,11 @@ class ErrorMessageWidget extends StatelessWidget {
       alignment: .center,
       height: MediaQuery.of(context).size.height * 0.211,
       width: MediaQuery.of(context).size.width,
-      child: Text(errMessage, style: Styles.regularTextStyle18),
+      child: Text(
+        textAlign: .center,
+        errMessage,
+        style: Styles.regularTextStyle18,
+      ),
     );
   }
 }

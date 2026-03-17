@@ -32,8 +32,10 @@ class HorizontalListView extends StatelessWidget {
               padding: .zero,
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
-                  BookModel bookModel = state.booksList[index];
-                  context.push(AppRoutes.kBookDetailsView, extra: bookModel);
+                  context.push(
+                    AppRoutes.kBookDetailsView,
+                    extra: state.booksList[index],
+                  );
                 },
                 child: Padding(
                   padding: const .only(right: 8, left: 8),

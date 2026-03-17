@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
 
 class FeaturedBooksShimmer extends StatelessWidget {
   const FeaturedBooksShimmer({super.key});
@@ -20,7 +19,15 @@ class FeaturedBooksShimmer extends StatelessWidget {
             padding: .zero,
             itemBuilder: (context, index) => Padding(
               padding: const .only(right: 8, left: 8),
-              child: BookImage(imagePath: ''),
+              child: AspectRatio(
+                aspectRatio: 2.01 / 3,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: .circular(16),
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
           ),
         ),

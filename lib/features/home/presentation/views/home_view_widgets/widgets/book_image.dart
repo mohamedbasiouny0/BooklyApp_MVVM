@@ -1,5 +1,5 @@
 import 'package:cached_network_image_ce/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class BookImage extends StatelessWidget {
   const BookImage({
@@ -19,7 +19,7 @@ class BookImage extends StatelessWidget {
           imageUrl: imagePath,
           fit: .fill,
           errorBuilder: (context, error, stackTrace) =>
-              Center(child: CircularProgressIndicator()),
+              Icon(CupertinoIcons.exclamationmark),
         ),
       ),
     );
