@@ -36,7 +36,9 @@ class HomeRepoImp implements HomeRepo {
   }
 
   @override
-  Future<List<BookModel>> fetchSimilarBooksBooks({required String category}) async {
+  Future<List<BookModel>> fetchSimilarBooksBooks({
+    required String category,
+  }) async {
     final response = await apiService.getReq(
       endPoint: ApiEndPoints.similarBooksEndPoint(category: category),
     );

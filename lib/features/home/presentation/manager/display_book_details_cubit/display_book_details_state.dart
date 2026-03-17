@@ -1,22 +1,22 @@
 part of 'display_book_details_cubit.dart';
 
-sealed class DisplayBookDetailsState extends Equatable {
-  const DisplayBookDetailsState();
+sealed class SimilarBooksState extends Equatable {
+  const SimilarBooksState();
 
   @override
   List<Object> get props => [];
 }
 
-final class DisplayBookDetailsInitial extends DisplayBookDetailsState {}
+final class SimilarBooksInitial extends SimilarBooksState {}
 
-final class DisplayBookDetailsLoading extends DisplayBookDetailsState {}
+final class SimilarBooksLoading extends SimilarBooksState {}
 
-final class DisplayBookDetailsFailure extends DisplayBookDetailsState {
+final class SimilarBooksFailure extends SimilarBooksState {
   final String errMessage;
-  const DisplayBookDetailsFailure({required this.errMessage});
+  const SimilarBooksFailure({required this.errMessage});
 }
 
-final class DisplayBookDetailsSuccess extends DisplayBookDetailsState {
-  final BookModel bookModel;
-  const DisplayBookDetailsSuccess({required this.bookModel});
+final class SimilarBooksSuccess extends SimilarBooksState {
+  final List<BookModel> bookModelsList;
+  const SimilarBooksSuccess({required this.bookModelsList});
 }
