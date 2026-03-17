@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test1/core/utils/app_routes.dart';
-import 'package:test1/core/widgets/error_widget.dart';
+import 'package:test1/core/widgets/error_message_widget.dart';
 import 'package:test1/features/home/data/book_model/book_model.dart';
 import 'package:test1/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';

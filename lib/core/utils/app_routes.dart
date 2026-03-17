@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test1/core/utils/service_locator.dart';
 import 'package:test1/features/home/data/book_model/book_model.dart';
-import 'package:test1/features/home/data/repos/home_repo.dart';
 import 'package:test1/features/home/data/repos/home_repo_imp.dart';
 import 'package:test1/features/home/presentation/manager/display_book_details_cubit/display_book_details_cubit.dart';
 import 'package:test1/features/home/presentation/views/book_details_view.dart';
