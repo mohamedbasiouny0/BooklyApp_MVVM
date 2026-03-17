@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
-import 'package:test1/core/utils/app_routes.dart';
 import 'package:test1/core/utils/styles.dart';
 import 'package:test1/features/home/data/book_model/book_model.dart';
 import 'package:test1/features/home/presentation/views/home_view_widgets/widgets/book_image.dart';
@@ -22,70 +20,64 @@ class NewestItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var authorsList = bookModel.volumeInfo!.authors;
-    return GestureDetector(
-      onTap: () => context.push(AppRoutes.kBookDetailsView),
-
-      child: Container(
-        margin: .symmetric(horizontal: 16),
-        decoration: BoxDecoration(
-          borderRadius: .circular(16),
-          color: Colors.white.withAlpha(39),
-        ),
-        height: 120,
-        child: Row(
-          children: [
-            BookImage(imagePath: bookModel.volumeInfo!.imageLinks!.thumbnail!),
-            Gap(16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: .start,
-                children: [
-                  Gap(4),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.68,
-                    child: Text(
-                      bookModel.volumeInfo!.title,
-
-                      maxLines: 2,
-                      overflow: .ellipsis,
-                      style: Styles.regularTextStyle18.copyWith(),
-                    ),
-                  ),
-                  Gap(3),
-                  Text(
-                    authorsList?[0] ?? 'no author found',
+    return Container(
+      margin: .symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        borderRadius: .circular(16),
+        color: Colors.white.withAlpha(39),
+      ),
+      height: 120,
+      child: Row(
+        children: [
+          BookImage(imagePath: bookModel.volumeInfo!.imageLinks!.thumbnail!),
+          Gap(16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Gap(4),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.68,
+                  child: Text(
+                    bookModel.volumeInfo!.title,
+                    maxLines: 2,
                     overflow: .ellipsis,
-                    maxLines: 1,
-                    style: Styles.regularTextStyle14.copyWith(
-                      color: Colors.amberAccent,
+                    style: Styles.regularTextStyle18.copyWith(),
+                  ),
+                ),
+                Gap(3),
+                Text(
+                  authorsList?[0] ?? 'no author found',
+                  overflow: .ellipsis,
+                  maxLines: 1,
+                  style: Styles.regularTextStyle14.copyWith(
+                    color: Colors.amberAccent,
+                  ),
+                ),
+                Spacer(),
+                Row(
+                  children: [
+                    Text(
+                      bookModel.saleInfo!.saleability! == 'FOR_SALE'
+                          ? '${bookModel.saleInfo!.listPrice!.amount!.round().toString()} ${bookModel.saleInfo!.listPrice!.currencyCode}'
+                          : 'Not for sale',
+                      style: Styles.regularTextStyle20.copyWith(
+                        fontWeight: .bold,
+                      ),
                     ),
-                  ),
-
-                  Spacer(),
-                  Row(
-                    children: [
-                      Text(
-                        bookModel.saleInfo!.saleability! == 'FOR_SALE'
-                            ? '${bookModel.saleInfo!.listPrice!.amount!.round().toString()} ${bookModel.saleInfo!.listPrice!.currencyCode}'
-                            : 'Not for sale',
-                        style: Styles.regularTextStyle20.copyWith(
-                          fontWeight: .bold,
-                        ),
-                      ),
-                      Spacer(),
-                      BookRating(
-                        rating: bookModel.volumeInfo?.averageRating ?? 0,
-                        ratingCount: bookModel.volumeInfo?.ratingCount ?? 0,
-                      ),
-                      Gap(16),
-                    ],
-                  ),
-                  Gap(4),
-                ],
-              ),
+                    Spacer(),
+                    BookRating(
+                      rating: bookModel.volumeInfo?.averageRating ?? 0,
+                      ratingCount: bookModel.volumeInfo?.ratingCount ?? 0,
+                    ),
+                    Gap(16),
+                  ],
+                ),
+                Gap(4),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
