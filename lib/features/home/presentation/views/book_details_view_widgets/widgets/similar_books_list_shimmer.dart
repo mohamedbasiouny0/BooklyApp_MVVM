@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:test1/features/home/presentation/views/book_details_view_widgets/widgets/similar_books_list_view.dart';
 
 class SimilarBooksListShimmer extends StatelessWidget {
   const SimilarBooksListShimmer({super.key});
@@ -12,7 +11,22 @@ class SimilarBooksListShimmer extends StatelessWidget {
       highlightColor: Colors.white,
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.18,
-        child: SimilarBooksListView(),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 6,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: AspectRatio(
+              aspectRatio: 2.01 / 3,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade800,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

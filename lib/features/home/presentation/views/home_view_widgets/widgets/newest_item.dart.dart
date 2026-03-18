@@ -42,7 +42,7 @@ class NewestItem extends StatelessWidget {
                     bookModel.volumeInfo!.title,
                     maxLines: 2,
                     overflow: .ellipsis,
-                    style: Styles.regularTextStyle18.copyWith(),
+                    style: Styles.regularTextStyle18,
                   ),
                 ),
                 Gap(3),

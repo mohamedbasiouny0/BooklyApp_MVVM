@@ -15,7 +15,7 @@ class SimilarBooksListView extends StatelessWidget {
         if (state is SimilarBooksSuccess) {
           return ListView.builder(
             scrollDirection: .horizontal,
-            itemCount: 10,
+            itemCount: state.bookModelsList.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(right: 5, left: 5),
               child: BookImage(
